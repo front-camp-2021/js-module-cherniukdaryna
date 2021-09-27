@@ -26,5 +26,8 @@
     "jest-fetch-mock": "^3.0.3",
     "json-server": "^0.16.3",
     "pretty-format": "^26.6.2"
+  },
+  "dependencies": {
+    "http-server": "^13.0.2"
   }
 }
