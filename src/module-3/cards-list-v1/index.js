@@ -6,6 +6,7 @@ export default class CardsList {
     this.Component = Component;
 
     this.render();
+    this.update(data);
   }
 
   render () {
@@ -13,10 +14,22 @@ export default class CardsList {
     productCardsList.classList.add("catalog");
     this.element = productCardsList;
 
+    this.getCard();
+  }
+
+  getCard () {
     for (const elem of this.data){
       const card  = new this.Component(elem);
       this.element.append(card.element);
     }
+  }
+
+  update (data) {
+    this.data = data;
+
+    this.element.innerHTML = "";
+
+    this.getCard();
   }
 
   remove () {
