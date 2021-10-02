@@ -7,17 +7,11 @@ export default class FiltersList {
     this.list = list;
 
     this.render();
+    this.addEvent();
   }
 
   getTemplate () {
-    return `<section class="filters-default">
-
-      <div class="header-filters">
-        <b class="header-filters__name">Filtres</b> 
-        <a class="header-filters__back" href="#">
-            <img class="header-filters__image-back-arrow" src="img/4829860_arrow_back_left_icon.svg" />
-        </a> 
-      </div>
+    return `
       <div class="filters-navigation">
       
         <div class="first-filtres-list">
@@ -38,8 +32,7 @@ export default class FiltersList {
         <p class="first-filtres-list__name--bold"><b>${this.title}</b></p>
           ${this.filtresList}                                 
         </div>
-      </div>
-    </section>`
+      </div>`
   }
 
   render(){
@@ -55,8 +48,8 @@ export default class FiltersList {
         class="first-filtres-list__checkbox-input" 
         type="checkbox" 
         id="cell" 
-        value="${elem.value}"
         ${elem.checked ? "checked" : ""} 
+        category="${elem.value}"
       />
       <label 
         class="first-filtres-list__checkbox-input-label" 
@@ -70,7 +63,28 @@ export default class FiltersList {
   }
 
   addEvent () {
-    this.element.addEventListener('click')
+    this.element.addEventListener('click', event => {
+      let name;
+
+      if (event.target.closest('input') || event.target.closest('label')){
+        const inputStatus = document.querySelector("[type]").checked;
+
+        if(inputStatus === true){
+          name = "add-filter";
+        }
+        else{
+          name = "remove-filter"
+        }
+      }
+
+      let myEvent = new CustomEvent(name, {
+        bubbles:true,
+        detail: event.target.value
+      });
+      
+      this.element.dispatchEvent(myEvent);
+    });
+    
   }
 
   remove () {
