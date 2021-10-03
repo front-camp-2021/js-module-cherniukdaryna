@@ -67,7 +67,6 @@ export default class FiltersList {
       
       
       this.element.dispatchEvent(myEvent);
-      console.log(name);
     });
     
   }
