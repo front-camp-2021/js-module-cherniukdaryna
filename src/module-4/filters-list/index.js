@@ -12,27 +12,12 @@ export default class FiltersList {
 
   getTemplate () {
     return `
-      <div class="filters-navigation">
-      
         <div class="first-filtres-list">
         <p class="first-filtres-list__name--bold"><b>${this.title}</b></p>
           ${this.filtresList}        
         </div>
 
-        <img class="filters-navigation__line" src="img/Divider.png" /><br>
-
-        <div class="second-filtres-list">
-        <p class="first-filtres-list__name--bold"><b>${this.title}</b></p>                                                      
-          ${this.filtresList} 
-        </div>
-
-        <img class="filters-navigation__line" src="img/Divider.png" /><br>
-
-        <div class="third-filtres-list">
-        <p class="first-filtres-list__name--bold"><b>${this.title}</b></p>
-          ${this.filtresList}                                 
-        </div>
-      </div>`
+        <img class="filters-navigation__line" src="img/Divider.png" /><br>`
   }
 
   render(){
@@ -73,7 +58,7 @@ export default class FiltersList {
           name = "add-filter";
         }
         else{
-          name = "remove-filter"
+          name = "remove-filter";
         }
       }
 
