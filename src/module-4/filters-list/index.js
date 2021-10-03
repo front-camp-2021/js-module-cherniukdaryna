@@ -32,13 +32,13 @@ export default class FiltersList {
       <input 
         class="first-filtres-list__checkbox-input" 
         type="checkbox" 
-        id="cell" 
+        id="${elem.title}" 
         ${elem.checked ? "checked" : ""} 
         category="${elem.value}"
       />
       <label 
         class="first-filtres-list__checkbox-input-label" 
-        for="cell"
+        for="${elem.title}"
         >
         ${elem.title}
       </label>
@@ -48,26 +48,26 @@ export default class FiltersList {
   }
 
   addEvent () {
-    this.element.addEventListener('click', event => {
+    this.element.addEventListener('change', event => {
       let name;
 
       if (event.target.closest('input') || event.target.closest('label')){
-        const inputStatus = document.querySelector("[type]").checked;
-
-        if(inputStatus === true){
+        if(event.target.checked){
           name = "add-filter";
         }
         else{
           name = "remove-filter";
         }
       }
-
+      
       let myEvent = new CustomEvent(name, {
         bubbles:true,
         detail: event.target.value
       });
       
+      
       this.element.dispatchEvent(myEvent);
+      console.log(name);
     });
     
   }

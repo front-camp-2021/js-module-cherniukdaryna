@@ -57,7 +57,7 @@ export default class SideBar {
       let myEvent = new CustomEvent(nameEvent, {
         bubbles:true
       });
-      
+
       this.element.dispatchEvent(myEvent);
     });
   }
