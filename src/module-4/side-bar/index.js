@@ -7,6 +7,7 @@ export default class SideBar {
 
     this.render();
     this.getfilter();
+    this.addBtnEvent();
   }
   getTemplate () {
     return `
@@ -24,7 +25,7 @@ export default class SideBar {
     </section>`
   }
   
-  render(){
+  render () {
     const sideBar = document.createElement('div');
     sideBar.innerHTML = this.getTemplate();
     this.element = sideBar;
@@ -44,6 +45,21 @@ export default class SideBar {
     const nav = this.element.querySelector(".filters-navigation");
     nav.append(category.element);
     nav.append(brand.element);
+  }
+
+  addBtnEvent () {
+    this.element.addEventListener('click', event => {
+      let nameEvent;
+      if (event.target.closest('button')){
+        nameEvent = `clear-filters`;
+      }
+
+      let myEvent = new CustomEvent(nameEvent, {
+        bubbles:true
+      });
+      
+      this.element.dispatchEvent(myEvent);
+    });
   }
   
   remove () {
