@@ -16,15 +16,15 @@ describe('DoubleSlider', () => {
     });
 
     doubleSlider = new DoubleSlider({
-      min: 100,
-      max: 200,
-      formatValue: value => '$' + value,
-      selected: {
-        from: 120,
-        to: 150
-      },
-      precision: 0,
-      filterName: ''
+        min: 100,
+        max: 200,
+        formatValue: value => '$' + value,
+        selected: {
+            from: 120,
+            to: 150
+        },
+        precision: 0,
+        filterName: ''
     });
 
     document.body.append(doubleSlider.element);
@@ -42,9 +42,9 @@ describe('DoubleSlider', () => {
 
   it('should have ability to set slider boundaries', () => {
     doubleSlider = new DoubleSlider({
-      min: 400,
-      max: 600,
-      formatValue: value => '$' + value,
+        min: 400,
+        max: 600,
+        formatValue: value => '$' + value,
     });
 
     const leftBoundary = doubleSlider.element.querySelector('span[data-element="from"]');
@@ -56,13 +56,13 @@ describe('DoubleSlider', () => {
 
   it('should have ability to set selected range', () => {
     doubleSlider = new DoubleSlider({
-      min: 300,
-      max: 800,
-      selected: {
-        from: 400,
-        to: 600
-      },
-      formatValue: value => '$' + value,
+        min: 300,
+        max: 800,
+        selected: {
+            from: 400,
+            to: 600
+        },
+        formatValue: value => '$' + value,
     });
 
     const leftBoundary = doubleSlider.element.querySelector('span[data-element="from"]');
@@ -168,9 +168,9 @@ describe('DoubleSlider', () => {
 
   it('should have ability to set range value, for example: usd, eur, etc.', () => {
     doubleSlider = new DoubleSlider({
-      min: 100,
-      max: 200,
-      formatValue: value => 'USD' + value
+        min: 100,
+        max: 200,
+        formatValue: value => 'USD' + value
     });
 
     const leftBoundary = doubleSlider.element.querySelector('span[data-element="from"]');
