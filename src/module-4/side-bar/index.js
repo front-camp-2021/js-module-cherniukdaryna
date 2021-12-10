@@ -13,24 +13,24 @@ export default class SideBar {
     return `
     <section class="filters-default">
       <div class="header-filters">
-        <b class="header-filters__name">Filtres</b> 
+        <b class="header-filters__name">Filtres</b>
         <a class="header-filters__back" href="#">
             <img class="header-filters__image-back-arrow" src="img/4829860_arrow_back_left_icon.svg" />
-        </a> 
+        </a>
       </div>
       <div class="filters-navigation">
-      
+
       </div>
       <button class="filters-default__buttonn-clear-all">Clear all filters</button>
     </section>`
   }
-  
+
   render () {
     const sideBar = document.createElement('div');
     sideBar.innerHTML = this.getTemplate();
     this.element = sideBar;
-  }  
-  
+  }
+
   getfilter () {
     const category = new FiltersList({
       title: "Category",
@@ -41,7 +41,7 @@ export default class SideBar {
       title: "Brand",
       list: this.brandFilter
     });
-    
+
     const nav = this.element.querySelector(".filters-navigation");
     nav.append(category.element);
     nav.append(brand.element);
@@ -61,7 +61,7 @@ export default class SideBar {
       this.element.dispatchEvent(myEvent);
     });
   }
-  
+
   remove () {
     if(this.element){
       this.element.remove();
@@ -71,5 +71,5 @@ export default class SideBar {
   destroy () {
     this.remove();
     this.element = null;
-  }  
+  }
 }

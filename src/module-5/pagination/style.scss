@@ -1,0 +1,27 @@
+@use "./elements/main";
+
+@use "./elements/all-content";
+
+@use "./elements/header";
+
+@use "./elements/nav";
+
+@use "./elements/filters-default";
+
+@use "./elements/results";
+
+@use "./elements/search";
+
+@use "./elements/footer";
+
+@use "./elements/card";
+
+@use "./elements/cards-list";
+
+@use "./elements/max-screen-1200";
+
+@use "./elements/max-screen-720";
+
+@use "./elements/max-screen-480";
+
+@use "./elements/max-screen-320";
