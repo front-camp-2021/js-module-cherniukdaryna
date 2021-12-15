@@ -76,11 +76,12 @@ export default class DoubleSlider {
       let coordsLeft = draggerLeft.getBoundingClientRect();
       let coordsRight = draggerRight.getBoundingClientRect();
       let coordsLine = range.getBoundingClientRect();
+      const windowInnerWidth = window.innerWidth
 
       if(coordsLeft.right < coordsRight.left){
         updateDraggerLeft(e);
 
-        draggerLine.style.left = coordsLeft.right - 74 + 'px' ;
+        draggerLine.style.left = coordsLeft.right - Math.ceil((windowInnerWidth * 7)/100) + 'px' ;
         draggerLine.style.width = coordsRight.left - coordsLeft.right + 'px';
       }
 

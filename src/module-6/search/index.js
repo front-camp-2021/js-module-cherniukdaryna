@@ -10,17 +10,18 @@ export default class Search {
 
   getTemplate() {
     return `
-      <div class="search">
+
         <input class="search__input" type="search" id="search" placeholder="  Search"/>
 
         <button class="search__btn-glass">
             <img class="search__image-search" src="img/4801315_glass_magnifier_magnifying_search_searching_icon.svg"/>
         </button>
-       </div>`
+   `
   }
 
   render() {
     const search = document.createElement('div');
+    search.classList.add("search");
     search.innerHTML = this.getTemplate();
     this.element = search;
 

@@ -14,7 +14,7 @@ export default class FiltersList {
     return `
         <div class="first-filtres-list">
         <p class="first-filtres-list__name--bold"><b>${this.title}</b></p>
-          ${this.filtresList}        
+          ${this.filtresList}
         </div>
 
         <img class="filters-navigation__line" src="img/Divider.png" /><br>`
@@ -29,16 +29,16 @@ export default class FiltersList {
   get filtresList () {
     const lists = this.list.map(elem => {
       return `
-      <input 
-        class="first-filtres-list__checkbox-input" 
-        type="checkbox" 
-        id="${elem.title}" 
-        ${elem.checked ? "checked" : ""} 
+      <input
+        class="first-filtres-list__checkbox-input"
+        type="checkbox"
+        id="${elem.value}"
+        ${elem.checked ? "checked" : ""}
         category="${elem.value}"
       />
-      <label 
-        class="first-filtres-list__checkbox-input-label" 
-        for="${elem.title}"
+      <label
+        class="first-filtres-list__checkbox-input-label"
+        for="${elem.value}"
         >
         ${elem.title}
       </label>
@@ -46,6 +46,8 @@ export default class FiltersList {
     });
     return lists.join('');
   }
+
+
 
   addEvent () {
     this.element.addEventListener('change', event => {
@@ -59,16 +61,16 @@ export default class FiltersList {
           name = "remove-filter";
         }
       }
-      
-      let myEvent = new CustomEvent(name, {
-        bubbles:true,
-        detail: event.target.value
-      });
-      
-      
-      this.element.dispatchEvent(myEvent);
+
+        this.element.dispatchEvent(
+          new CustomEvent(
+            name,
+            {
+              bubbles: true,
+              detail: event.target.id
+            })
+        )
     });
-    
   }
 
   remove () {

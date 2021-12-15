@@ -16,7 +16,6 @@ export default class Pagination {
 
   getTemplate () {
     return `
-    <footer class="footer">
         <a class="footer__arrow-back-left" href="#">
           <img class="footer__image-arrow-back-left" src="img/2931162_arrow_back_left_direction_move_icon.svg" />
         </a>
@@ -27,12 +26,12 @@ export default class Pagination {
 
         <a class="footer__arrow-forward-right" href="#">
           <img class="footer__image-arrow-forward-right" src="img/2931159_arrow_forward_right_move_navigation_icon.svg"/>
-        </a>
-    </footer>`
+        </a>`
   }
 
   render () {
-    const pagination = document.createElement('div');
+    const pagination = document.createElement('footer');
+    pagination.classList.add("footer");
     pagination.innerHTML = this.getTemplate();
     this.element = pagination;
 
@@ -64,16 +63,20 @@ export default class Pagination {
         const page = +event.target.outerText;
         this.currentPage = page;
 
-        this.dispatchEvent(page);
+        this.dispatchEvent(this.currentPage);
 
         this.update();
       }
 
-      else if (event.target.className === 'footer__arrow-back-left'){
+      else if (
+        event.target.className === 'footer__arrow-back-left'
+        || event.target.className === 'footer__image-arrow-back-left'){
           this.goToPrevPage();
       }
 
-      else if (event.target.className === 'footer__arrow-forward-right') {
+      else if (
+        event.target.className === 'footer__arrow-forward-right'
+        || event.target.className === 'footer__image-arrow-forward-right') {
         this.goToNextPage();
       }
     });
@@ -97,7 +100,6 @@ export default class Pagination {
     else {
       this.currentPage = this.currentPage;
     }
-
       this.dispatchEvent(this.currentPage);
 
       this.update()

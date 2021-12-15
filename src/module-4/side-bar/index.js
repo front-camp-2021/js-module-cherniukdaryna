@@ -1,4 +1,5 @@
 import FiltersList from '../filters-list/index.js';
+import DoubleSlider from "../../module-5/double-slider/index.js";
 
 export default class SideBar {
   constructor (categoriesFilter = [], brandFilter = []) {
@@ -11,7 +12,6 @@ export default class SideBar {
   }
   getTemplate () {
     return `
-    <section class="filters-default">
       <div class="header-filters">
         <b class="header-filters__name">Filtres</b>
         <a class="header-filters__back" href="#">
@@ -22,13 +22,16 @@ export default class SideBar {
 
       </div>
       <button class="filters-default__buttonn-clear-all">Clear all filters</button>
-    </section>`
+`
   }
 
   render () {
-    const sideBar = document.createElement('div');
+    const sideBar = document.createElement('section');
+    sideBar.classList.add("filters-default");
     sideBar.innerHTML = this.getTemplate();
     this.element = sideBar;
+
+    this.renderSlider();
   }
 
   getfilter () {
@@ -60,6 +63,14 @@ export default class SideBar {
 
       this.element.dispatchEvent(myEvent);
     });
+  }
+
+  renderSlider () {
+    const wrapper = this.element.querySelector('.filters-navigation');
+
+    const doubleSlider = new DoubleSlider({});
+
+    wrapper.append(doubleSlider.element);
   }
 
   remove () {
