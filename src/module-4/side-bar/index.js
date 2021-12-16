@@ -48,6 +48,8 @@ export default class SideBar {
     const nav = this.element.querySelector(".filters-navigation");
     nav.append(category.element);
     nav.append(brand.element);
+
+    return brand, category;
   }
 
   addBtnEvent () {
@@ -55,6 +57,11 @@ export default class SideBar {
       let nameEvent;
       if (event.target.closest('button')){
         nameEvent = `clear-filters`;
+
+        const checkboxes = this.element.querySelectorAll('.first-filtres-list__checkbox-input');
+        for (let checkbox of checkboxes) {
+          checkbox.checked = false;
+        }
       }
 
       let myEvent = new CustomEvent(nameEvent, {

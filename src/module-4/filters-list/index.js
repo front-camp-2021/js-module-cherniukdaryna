@@ -12,12 +12,12 @@ export default class FiltersList {
 
   getTemplate () {
     return `
+        <img class="filters-navigation__line" src="img/Divider.png" /><br>
+
         <div class="first-filtres-list">
         <p class="first-filtres-list__name--bold"><b>${this.title}</b></p>
           ${this.filtresList}
-        </div>
-
-        <img class="filters-navigation__line" src="img/Divider.png" /><br>`
+        </div>`
   }
 
   render(){

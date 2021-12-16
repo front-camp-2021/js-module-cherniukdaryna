@@ -10,13 +10,11 @@ export default class Search {
 
   getTemplate() {
     return `
+      <input class="search__input" type="search" id="search" placeholder="  Search"/>
 
-        <input class="search__input" type="search" id="search" placeholder="  Search"/>
-
-        <button class="search__btn-glass">
-            <img class="search__image-search" src="img/4801315_glass_magnifier_magnifying_search_searching_icon.svg"/>
-        </button>
-   `
+      <button class="search__btn-glass">
+        <img class="search__image-search" src="img/4801315_glass_magnifier_magnifying_search_searching_icon.svg"/>
+      </button>`
   }
 
   render() {

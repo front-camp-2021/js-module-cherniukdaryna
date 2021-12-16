@@ -19,27 +19,30 @@ export default class DoubleSlider {
     this.selected = selected;
     this.filterName = filterName;
     this.precision = 10 ** precision;
+
     this.render();
-    this.rangeSlider();
   }
 
   getTemplate () {
     const { from, to } = this.selected;
-    return `<div id="range" class="range-slider">
-    <span id="test-result" data-element="from">${this.formatValue(from)}</span>
-    <div class="range-slider__inner">
-      <span data-element="progress" class="range-slider__progress"></span>
-      <span data-element="thumbLeft" class="range-slider__thumb-left"></span>
-      <span data-element="thumbRight" class="range-slider__thumb-right"></span>
-    </div>
-    <span id="test-result" data-element="to">${this.formatValue(to)}</span>
-  </div>`
+    return ` <p class="first-filtres-list__name--bold"><b>Price</b></p>
+      <div id="range" class="range-slider">
+        <span id="test-result" data-element="from">${this.formatValue(from)}</span>
+        <div class="range-slider__inner">
+          <span data-element="progress" class="range-slider__progress"></span>
+          <span data-element="thumbLeft" class="range-slider__thumb-left"></span>
+          <span data-element="thumbRight" class="range-slider__thumb-right"></span>
+        </div>
+        <span id="test-result" data-element="to">${this.formatValue(to)}</span>
+      </div>`
   }
 
   render () {
     const slider = document.createElement('div');
     slider.innerHTML = this.getTemplate();
     this.element = slider;
+
+    this.rangeSlider();
   }
 
   rangeSlider () {
@@ -120,6 +123,7 @@ export default class DoubleSlider {
         document.addEventListener("mousemove", right);
 
         document.removeEventListener("mousemove", left);
+
       }
       return false;
     });
@@ -140,17 +144,6 @@ export default class DoubleSlider {
 
     document.addEventListener("mouseup", function() {
       down = false;
-
-      document.dispatchEvent(new CustomEvent('range-selected', {
-        bubbles: true,
-        detail: {
-          filterName: this.filterName,
-          value: {
-            from: spanFrom.innerHTML,
-            to: spanTo.innerHTML
-          }
-        }
-      }));
     });
 
     function updateDraggerLeft(e) {
@@ -165,6 +158,28 @@ export default class DoubleSlider {
         draggerRight.style.left = a.pageX - rangeRight - draggerRightWidth + 'px';
         if (typeof onDrag == "function") onDrag(Math.round(((a.pageX - rangeRight) / rangeWidth) * 100));
       }
+    }
+
+    this.dispatch(spanFrom.innerHTML, spanTo.innerHTML);
+  }
+
+  dispatch (fromValue, toValue) {
+    const { from, to } = this.selected;
+    if (from != +fromValue || to != + toValue) {
+
+      document.dispatchEvent(
+        new CustomEvent('range-selected',
+          {
+            bubbles: true,
+            detail: {
+              filterName: this.filterName,
+              value: {
+                from: fromValue,
+                to: toValue
+              }
+            }
+          })
+      );
     }
   }
 

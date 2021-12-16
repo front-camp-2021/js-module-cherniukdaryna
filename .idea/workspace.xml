@@ -2,41 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="513e87af-28de-4ebf-84b1-f7b79903e17c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/module-4/side-bar/range-thumb-icon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/module-6/main-page/img/2561466_menu_icon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/module-6/main-page/img/2703079_close_delete_exit_x_icon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/module-6/main-page/img/2931159_arrow_forward_right_move_navigation_icon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/module-6/main-page/img/2931162_arrow_back_left_direction_move_icon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/module-6/main-page/img/3844435_home_house_icon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/module-6/main-page/img/4801315_glass_magnifier_magnifying_search_searching_icon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/module-6/main-page/img/4829859_arrow_next_right_icon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/module-6/main-page/img/4829860_arrow_back_left_icon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/module-6/main-page/img/Divider.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/module-6/main-page/img/basket.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/module-6/main-page/img/heart.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/module-6/main-page/img/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/module-6/main-page/img/star.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/module-6/main-page/range-thumb-icon.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module-2/card/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-2/card/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module-2/card/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-2/card/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module-3/cards-list-v1/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-3/cards-list-v1/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/module-4/filters-list/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-4/filters-list/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module-4/side-bar/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-4/side-bar/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/module-4/side-bar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-4/side-bar/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module-4/side-bar/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-4/side-bar/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module-5/double-slider/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-5/double-slider/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/module-5/double-slider/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-5/double-slider/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module-5/pagination/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-5/pagination/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module-5/pagination/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-5/pagination/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/module-6/main-page/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-6/main-page/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/module-6/main-page/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-6/main-page/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module-6/main-page/prepare-filters/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-6/main-page/prepare-filters/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module-6/search/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-6/search/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/module-6/search/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-6/search/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module-6/search/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-6/main-page/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module-6/search/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-6/main-page/style.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module-6/search/style.scss" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +91,7 @@
       <option name="presentableId" value="Default" />
       <updated>1639050949822</updated>
       <workItem from="1639050952424" duration="534000" />
-      <workItem from="1639051503765" duration="60281000" />
+      <workItem from="1639051503765" duration="69873000" />
     </task>
     <servers />
   </component>

@@ -5,6 +5,7 @@ import Search from '../search/index.js';
 import Card from '../../module-2/card/index.js';
 import { request } from './request/index.js';
 import { prepareFilters } from './prepare-filters/index.js';
+import {debounce} from "../../module-1/debounce/index.js";
 
 const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3000';
 
@@ -23,6 +24,8 @@ export default class Page {
     activeCategories: []
   };
   resultList = [];
+  inputValue = "";
+  page = 1;
 
   constructor() {
     this.filters.set('_page', '1');
@@ -76,7 +79,10 @@ export default class Page {
     this.renderElements();
     this.getProducts();
     this.addFilterEvents();
-    this.addPaginationEvent()
+    this.addPaginationEvent();
+    this.addSearchEvent();
+    //this.addPriceEvent();
+    this.addClearEvent();
   }
 
   getSubElements () {
@@ -131,7 +137,6 @@ export default class Page {
 
       const { cardsList } = this.components;
       this.subElements.content.append(cardsList.element);
-
     });
   }
 
@@ -144,8 +149,7 @@ export default class Page {
         ? this.activeFilters.activeCategories.push(value)
         : this.activeFilters.activeBrands.push(value);
 
-      this.filtration(this.activeFilters.activeCategories, this.activeFilters.activeBrands);
-
+      this.filtration();
     });
 
     this.element.addEventListener('remove-filter', event => {
@@ -155,27 +159,53 @@ export default class Page {
         ? this.activeFilters.activeCategories = this.activeFilters.activeCategories.filter(item => item != value)
         : this.activeFilters.activeBrands = this.activeFilters.activeBrands.filter(item => item != value)
 
-      this.filtration(this.activeFilters.activeCategories, this.activeFilters.activeBrands)
+      this.filtration();
     } );
   }
 
   addPaginationEvent () {
     this.element.addEventListener('page-changed', event => {
-      this.filtration(this.activeFilters.activeCategories, this.activeFilters.activeBrands, event.detail)
+      this.page = event.detail;
+      this.filtration();
     });
   }
 
-  filtration(categories, brands, page = 1) {
+  addSearchEvent () {
+    this.element.addEventListener('search-filter', event => {
+      this.inputValue = event.detail.toLowerCase();
+      debounce(this.filtration(), 2000);
 
+    });
+  }
+
+  //addPriceEvent () {
+  //  this.element.addEventListener('range-selected', event => {
+  //    console.log(1)
+  //  });
+  //}
+
+  addClearEvent () {
+    this.element.addEventListener('clear-filters', event => {
+      this.activeFilters.activeCategories = [];
+      this.activeFilters.activeBrands = [];
+
+      this.resultList = this.products[0].slice(this.page * 9 - 9, this.page * 9);
+
+      this.updateCardsList(this.resultList);
+    })
+  }
+
+  filtration() {
     this.resultList = this.products[0]
-      .filter((item) => categories.length > 0
-        ? categories.includes(item.category)
+      .filter((item) => this.activeFilters.activeCategories.length > 0
+        ? this.activeFilters.activeCategories.includes(item.category)
         : item.category)
-      .filter((item) => brands.length > 0
-        ? brands.includes(item.brand)
+      .filter((item) => this.activeFilters.activeBrands.length > 0
+        ? this.activeFilters.activeBrands.includes(item.brand)
         : item.brand)
+      .filter((item) => item.title.toLowerCase().includes(this.inputValue, 0))
 
-    this.resultList = this.resultList.slice(page * 9 - 9, page * 9)
+    this.resultList = this.resultList.slice(this.page * 9 - 9, this.page * 9)
 
     this.updateCardsList(this.resultList);
   }
